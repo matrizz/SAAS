@@ -11,7 +11,7 @@ export async function GET(request: NextRequest) {
 
   if (!code) {
     return NextResponse.json(
-      { message: 'Github OAuth  code was not found.' },
+      { message: 'Github OAuth code was not found.' },
       { status: 400 },
     )
   }
@@ -31,7 +31,6 @@ export async function GET(request: NextRequest) {
       cookies().delete('inviteId')
     } catch {}
   }
-
   const redirectUrl = request.nextUrl.clone()
 
   redirectUrl.pathname = '/'

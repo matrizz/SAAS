@@ -1,4 +1,4 @@
-import { env } from '@saas/env'
+import { env } from '@complex/env'
 import type { FastifyInstance } from 'fastify'
 import type { ZodTypeProvider } from 'fastify-type-provider-zod'
 import { z } from 'zod'
@@ -35,17 +35,25 @@ export async function authenticateWithGithub(app: FastifyInstance) {
         'client_secret',
         env.GITHUB_OAUTH_CLIENT_SECRET,
       )
+      githubOAuthURL.searchParams.set('code', code)
       githubOAuthURL.searchParams.set(
         'redirect_uri',
         env.GITHUB_OAUTH_CLIENT_REDIRECT_URI,
       )
-      githubOAuthURL.searchParams.set('code', code)
 
       const githubAccessTokenResponse = await fetch(githubOAuthURL, {
         method: 'POST',
         headers: {
+          'Content-Type': 'application/json',
           Accept: 'application/json',
         },
+        body: JSON.stringify({
+          client_id: env.GITHUB_OAUTH_CLIENT_ID,
+          client_secret: env.GITHUB_OAUTH_CLIENT_SECRET,
+          code,
+          redirect_uri: env.GITHUB_OAUTH_CLIENT_REDIRECT_URI,
+          scope: 'user:email',
+        }),
       })
 
       const githubAccessTokenData = await githubAccessTokenResponse.json()
@@ -53,11 +61,15 @@ export async function authenticateWithGithub(app: FastifyInstance) {
       const { access_token: githubAccessToken } = z
         .object({
           access_token: z.string(),
-          token_type: z.literal('bearer'),
+          token_type: z.literal('bearer').default('bearer'),
           scope: z.string(),
         })
         .parse(githubAccessTokenData)
 
+      console.log(
+        '\n \x1b[32m[REQUEST TYPE GET] GITHUB USER DATA \n \x1b[0m',
+        githubAccessTokenData,
+      )
       const githubUserResponse = await fetch('https://api.github.com/user', {
         headers: {
           Authorization: `Bearer ${githubAccessToken}`,
@@ -65,6 +77,10 @@ export async function authenticateWithGithub(app: FastifyInstance) {
       })
 
       const githubUserData = await githubUserResponse.json()
+      console.log(
+        '\n \x1b[32m[RESPONSE] GITHUB USER DATA \x1b[0m',
+        githubUserData,
+      )
 
       const {
         id: githubId,

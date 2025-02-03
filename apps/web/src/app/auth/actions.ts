@@ -1,6 +1,6 @@
 'use server'
 
-import { env } from '@saas/env'
+import { env } from '@complex/env'
 import { redirect } from 'next/navigation'
 
 export async function signInWithGithub() {
@@ -11,7 +11,7 @@ export async function signInWithGithub() {
     'redirect_uri',
     env.GITHUB_OAUTH_CLIENT_REDIRECT_URI,
   )
-  githubSignInURL.searchParams.set('scope', 'user')
+  githubSignInURL.searchParams.set('scope', 'user:email')
 
   redirect(githubSignInURL.toString())
 }

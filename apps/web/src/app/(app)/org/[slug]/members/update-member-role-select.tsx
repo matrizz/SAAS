@@ -1,6 +1,6 @@
 'use client'
 
-import { Role } from '@saas/auth'
+import { Role } from '@complex/auth'
 import { ComponentProps } from 'react'
 
 import {

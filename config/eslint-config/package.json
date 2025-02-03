@@ -1,5 +1,5 @@
 {
-  "name": "@saas/eslint-config",
+  "name": "@complex/eslint-config",
   "version": "0.0.0",
   "private": true,
   "files": [
@@ -10,10 +10,12 @@
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.2.2",
     "eslint-plugin-simple-import-sort": "^12.0.0",
-    "@saas/prettier": "workspace:*"
+    "@complex/prettier": "workspace:*"
   },
-  "prettier": "@saas/prettier",
+  "prettier": "@complex/prettier",
   "eslintConfig": {
-    "extends": ["./library.js"]
+    "extends": [
+      "./library.js"
+    ]
   }
 }

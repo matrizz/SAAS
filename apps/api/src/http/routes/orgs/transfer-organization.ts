@@ -1,4 +1,4 @@
-import { organizationSchema } from '@saas/auth'
+import { organizationSchema } from '@complex/auth'
 import type { FastifyInstance } from 'fastify'
 import type { ZodTypeProvider } from 'fastify-type-provider-zod'
 import { z } from 'zod'

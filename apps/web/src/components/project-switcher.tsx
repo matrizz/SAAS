@@ -20,8 +20,13 @@ import {
 import { Skeleton } from './ui/skeleton'
 
 export function ProjectSwitcher() {
-  const { slug: orgSlug, project: projectSlug } = useParams<{
+  const {
+    slug: orgSlug,
+    template: projectTemplate,
+    project: projectSlug,
+  } = useParams<{
     slug: string
+    template: string
     project: string
   }>()
 
@@ -82,7 +87,9 @@ export function ProjectSwitcher() {
             data.projects.map((project) => {
               return (
                 <DropdownMenuItem key={project.id} asChild>
-                  <Link href={`/org/${orgSlug}/project/${project.slug}`}>
+                  <Link
+                    href={`/org/${orgSlug}/${projectTemplate}/project/${project.slug}`}
+                  >
                     <Avatar className="mr-2 size-4">
                       {project.avatarUrl && (
                         <AvatarImage src={project.avatarUrl} />

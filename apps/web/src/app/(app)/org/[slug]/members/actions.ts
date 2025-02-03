@@ -1,6 +1,6 @@
 'use server'
 
-import { Role, roleSchema } from '@saas/auth'
+import { Role, roleSchema } from '@complex/auth'
 import { HTTPError } from 'ky'
 import { revalidateTag } from 'next/cache'
 import { z } from 'zod'

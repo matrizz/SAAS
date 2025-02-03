@@ -1,4 +1,4 @@
-import { Role } from '@saas/auth'
+import { Role } from '@complex/auth'
 
 import { api } from './api-client'
 

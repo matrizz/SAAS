@@ -1,5 +1,5 @@
 {
-  "name": "@saas/prettier",
+  "name": "@complex/prettier",
   "version": "0.0.0",
   "main": "index.mjs",
   "private": true,

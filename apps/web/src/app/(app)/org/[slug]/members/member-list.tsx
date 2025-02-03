@@ -1,4 +1,4 @@
-import { organizationSchema } from '@saas/auth'
+import { organizationSchema } from '@complex/auth'
 import { ArrowLeftRight, Crown, UserMinus } from 'lucide-react'
 import Image from 'next/image'
 
@@ -72,11 +72,11 @@ export async function MemberList() {
                         'transfer_ownership',
                         authOrganization,
                       ) && (
-                        <Button size="sm" variant="ghost">
-                          <ArrowLeftRight className="mr-2 size-4" />
-                          Transfer ownership
-                        </Button>
-                      )}
+                          <Button size="sm" variant="ghost">
+                            <ArrowLeftRight className="mr-2 size-4" />
+                            Transfer ownership
+                          </Button>
+                        )}
 
                       <UpdateMemberRoleSelect
                         memberId={member.id}

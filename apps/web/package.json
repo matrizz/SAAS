@@ -1,5 +1,5 @@
 {
-  "name": "@saas/web",
+  "name": "@complex/web",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -19,8 +19,8 @@
     "@radix-ui/react-select": "^2.1.1",
     "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
-    "@saas/auth": "workspace:*",
-    "@saas/env": "workspace:*",
+    "@complex/auth": "workspace:*",
+    "@complex/env": "workspace:*",
     "@tanstack/react-query": "^5.51.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -28,18 +28,18 @@
     "dayjs": "^1.11.12",
     "ky": "^1.3.0",
     "lucide-react": "^0.383.0",
-    "next": "15.0.0-rc.0",
+    "next": "14",
     "next-themes": "^0.3.0",
-    "react": "19.0.0-rc-f994737d14-20240522",
-    "react-dom": "19.0.0-rc-f994737d14-20240522",
+    "react": "^18.0",
+    "react-dom": "^18.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@saas/eslint-config": "workspace:*",
-    "@saas/prettier": "workspace:*",
-    "@saas/tsconfig": "workspace:*",
+    "@complex/eslint-config": "workspace:*",
+    "@complex/prettier": "workspace:*",
+    "@complex/tsconfig": "workspace:*",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -48,10 +48,10 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   },
-  "prettier": "@saas/prettier",
+  "prettier": "@complex/prettier",
   "eslintConfig": {
     "extends": [
-      "@saas/eslint-config/next"
+      "@complex/eslint-config/next"
     ]
   }
 }
